@@ -1,2 +1,1 @@
 # mobile_application_development
-do ngu
