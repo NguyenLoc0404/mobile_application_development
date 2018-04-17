@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Bai Tap 2</title>
+<script type="text/javascript">
+function reset()
+{
+	document.getElementById("myform").reset();
+	var theP=document.getElementById("kqxuatra");
+	theP.innerHTML=" ";
+}
+function changeTiente()
+{
+	var  donvi1 =document.getElementById("select");
+	var donvi2 =document.getElementById("select2");
+	var  tiente =document.getElementById("textfield2");
+	var kq;
+	var theP=document.getElementById("kqxuatra");
+	if(tiente.value =='')
+	{
+		alert("Khong duoc de rong dong nhap tien te ");
+	}
+	 else if(isNaN(tiente.value))
+		alert("nhap vao so tien khong duoc nhap ki tu");
+		//USD->VN
+	 else if(donvi1.value==0 && donvi2.value==1)
+	 		{
+				kq=tiente.value*22740;
+				theP.innerHTML=kq+" VND";
+				theP.style.color="red";
+			}
+			//VN->VN
+	else if(donvi1.value==1 && donvi2.value==1)
+	 		{
+				kq=tiente.value;
+				theP.innerHTML=kq+" VND";
+				theP.style.color="red";
+			}	
+			//EURO->VN	
+	 else if(donvi1.value==2 && donvi2.value==1)
+	 		{
+				kq=tiente.value*27907;
+				theP.innerHTML=kq+" VND";
+				theP.style.color="red";
+			}
+			//USD->USD
+	else if(donvi1.value==0 && donvi2.value==0)
+	 		{
+				kq=tiente.value;
+				theP.innerHTML=kq+" USD";
+				theP.style.color="red";
+			}
+			//USD->EURO
+	else if(donvi1.value==0 && donvi2.value==2)
+	 		{
+				kq=tiente.value*0.81;
+				theP.innerHTML=kq+" EUR";
+				theP.style.color="red";
+			}	
+			//VN->USD
+	else if(donvi1.value==1 && donvi2.value==0)
+	 		{
+				kq=tiente.value*0.00044;
+				theP.innerHTML=kq+" USD";
+				theP.style.color="red";
+			}
+			//VN->EURO
+	else if(donvi1.value==1 && donvi2.value==2)
+	 		{
+				kq=tiente.value*0.0000356;
+				theP.innerHTML=kq+" EUR";
+				theP.style.color="red";
+			}
+			//EURO->USD
+	else if(donvi1.value==2 && donvi2.value==0)
+	 		{
+				kq=tiente.value*1.23;
+				theP.innerHTML=kq+" USD";
+				theP.style.color="red";
+			}	
+			//EURO->EURO
+	else if(donvi1.value==2 && donvi2.value==2)
+	 		{
+				kq=tiente.value;
+				theP.innerHTML=kq+" EUR";
+				theP.style.color="red";
+			}												
+										
+}
+
+
+</script>
+</head>
+
+<body>
+<form id="myform">
+<table width="259" border="1">
+  <tr>
+    <td colspan="2"><div align="center"><b>CHUYỂN ĐỔI TIỀN TỆ</b></div></td>
+  </tr>
+  <tr>
+    <td width="62"><select name="select" id="select" style="width:100%">
+    <option value="0" selected>USD</option>
+     <option value="1" >VND</option>
+     <option value="2">EUR</option>
+    </select></td>
+    <td width="181"><input type="text" name="textfield2" id="textfield2" style="width:100%"></td>
+  </tr>
+  <tr>
+    <td>
+      <select name="select2" id="select2" style="width:100%">
+        <option value="0">USD</option>
+        <option value="1" selected>VND</option>
+        <option value="2">EUR</option>
+        </select>
+      </td>
+    <td><p id="kqxuatra"></p></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div align="center">
+      <input type="button" name="button2" id="button2" value="Conveter" onClick="changeTiente()">
+    </div></td>
+    </tr>
+</table>
+</form>
+
+</body>
+</html>
